@@ -1,7 +1,5 @@
 #pragma once
 
-#ifdef ENG_PLATFORM_WINDOWS
-
 extern eng::Application* eng::CreateApplication();
 
 int main(int argc, char* argv[])
@@ -10,5 +8,3 @@ int main(int argc, char* argv[])
 	app->Run();
 	delete app;
 }
-
-#endif
