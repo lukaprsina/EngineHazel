@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Engine",
+    "\\Engine\\include",
+    "\\Engine\\src",
+    "\\Game",
+    "\\Game\\src"
+  ],
+  "SelectedNode": "\\CMakeLists.txt",
+  "PreviewInSolutionExplorer": false
+}
