@@ -1,7 +1,7 @@
 #pragma once
 
 // For use by Engine applications
-#include "../src/Application.h"
+#include "Application.h"
 
 // Entry point
-#include "../src/EntryPoint.h"
+#include "EntryPoint.h"
