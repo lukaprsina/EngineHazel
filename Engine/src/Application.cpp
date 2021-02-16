@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include "GLFW/glfw3.h"
+#include "Platform/Windows/WindowsWindow.h"
 
 #include <iostream>
 
@@ -11,7 +12,8 @@ namespace eng
 
     Application::Application()
     {
-        m_Window = std::unique_ptr<Window>(Window::Create(WindowProps("Name")));
+        auto test = Window::Create();
+        m_Window = std::unique_ptr<Window>(test);
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
     }
 
