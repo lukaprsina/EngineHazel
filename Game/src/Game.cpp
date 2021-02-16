@@ -3,17 +3,15 @@
 class Game : public eng::Application
 {
 public:
-	Game()
-	{
-
-	}
-	~Game()
-	{
-
-	}
+    Game()
+    {
+    }
+    ~Game()
+    {
+    }
 };
 
-eng::Application* eng::CreateApplication()
+eng::Application *eng::CreateApplication()
 {
-	return new Game();
+    return new Game();
 }

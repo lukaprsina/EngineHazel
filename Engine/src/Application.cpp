@@ -1,21 +1,23 @@
 #include <iostream>
 #include "Application.h"
+#include "Events/ApplicationEvent.h"
 
-namespace eng {
-	Application::Application()
-	{        
-	}
+namespace eng
+{
+    Application::Application()
+    {
+    }
 
-	Application::~Application()
-	{
+    Application::~Application()
+    {
+    }
 
-	}
+    void Application::Run()
+    {
+        WindowResizeEvent e(1280, 720);
 
-	void Application::Run()
-	{
-		while (true)
-		{
-			std::cout << "My Engine\n";
-		}
-	}
-}
+        std::cout << e << '\n';
+        
+        while (true);      
+    }
+} // namespace eng
