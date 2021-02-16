@@ -3,6 +3,7 @@
 target_include_directories(Engine
 	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
 	INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/GLFW/include 
 	)
 
 set(ENG_PLATFORM ENG_PLATFORM_UNKNOWN)
