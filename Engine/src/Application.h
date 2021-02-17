@@ -1,12 +1,12 @@
 #pragma once
 
+#include "pch.h"
 #include "Core.h"
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 
 #include "Window.h"
 
-#include <memory>
 
 namespace eng
 {

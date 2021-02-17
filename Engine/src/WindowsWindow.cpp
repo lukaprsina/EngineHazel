@@ -4,8 +4,6 @@
 #include "Events/MouseEvent.h"
 #include "Events/KeyEvent.h"
 
-#include <iostream>
-
 namespace eng
 {
 

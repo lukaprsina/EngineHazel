@@ -1,10 +1,8 @@
 #pragma once
 
+#include "pch.h"
 #include "Core.h"
 #include "Events/Event.h"
-
-#include <functional>
-#include <iostream>
 
 namespace eng
 {
