@@ -3,7 +3,7 @@
 	"src/Core/Log.cpp"
 	"src/Core/pch.cpp"
 	"src/Platform/GLFWWindow.cpp"
-)
+	)
 
 target_include_directories(Engine
 	PRIVATE ${PROJECT_BINARY_DIR}
@@ -14,10 +14,15 @@ target_include_directories(Engine
 	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/Glad/include
 	)
 
+target_link_directories(Engine
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/Core
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/Platform	
+	)
+
 target_link_libraries(Engine
 	PRIVATE glfw
 	PRIVATE Glad
-	PUBLIC spdlog
+	PRIVATE spdlog
 	)
 
 if (WIN32)

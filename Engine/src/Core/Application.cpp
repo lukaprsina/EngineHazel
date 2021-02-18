@@ -10,6 +10,7 @@ namespace eng
 
     Application::Application()
     {
+        eng::Log::Init();
         ENG_CORE_TRACE("Creating an Application class...");
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
@@ -24,8 +25,7 @@ namespace eng
     {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-        //ENG_CORE_TRACE("{0}", e);
-        std::cout << e << '\n';
+        ENG_CORE_TRACE("{0}", e.ToString());        
     }
 
     void Application::Run()
