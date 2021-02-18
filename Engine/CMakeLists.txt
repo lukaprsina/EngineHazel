@@ -17,6 +17,7 @@ target_include_directories(Engine
 target_link_libraries(Engine
 	PRIVATE glfw
 	PRIVATE Glad
+	PUBLIC spdlog
 	)
 
 if (WIN32)

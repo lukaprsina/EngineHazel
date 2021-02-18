@@ -4,4 +4,7 @@ target_include_directories(Game
 	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-target_link_libraries(Game PUBLIC Engine)
+target_link_libraries(Game
+	PRIVATE spdlog
+	PUBLIC Engine
+	)
