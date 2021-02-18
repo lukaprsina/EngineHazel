@@ -7,7 +7,6 @@
 
 #include "Window.h"
 
-
 namespace eng
 {
     class ENG_API Application

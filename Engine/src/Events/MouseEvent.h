@@ -1,9 +1,10 @@
 #pragma once
 
-#include "pch.h"
-#include "Event.h"
+#include "Core/pch.h"
+#include "Events/Event.h"
 
-namespace eng {
+namespace eng
+{
 
 	class ENG_API MouseMovedEvent : public Event
 	{

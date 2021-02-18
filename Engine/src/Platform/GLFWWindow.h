@@ -1,17 +1,17 @@
 #pragma once
 
-#include "pch.h"
-#include "Window.h"
+#include "Core/pch.h"
+#include "Core/Window.h"
 #include "GLFW/glfw3.h"
 
 namespace eng
 {
 
-    class WindowsWindow : public Window
+    class GLFWWindow : public Window
     {
     public:
-        WindowsWindow(const WindowProps &props);
-        virtual ~WindowsWindow();
+        GLFWWindow(const WindowProps &props);
+        virtual ~GLFWWindow();
 
         void OnUpdate() override;
 

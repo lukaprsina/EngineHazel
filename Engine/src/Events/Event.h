@@ -1,7 +1,7 @@
 #pragma once
 
-#include "pch.h"
-#include "Core.h"
+#include "Core/pch.h"
+#include "Core/Core.h"
 
 namespace eng
 {

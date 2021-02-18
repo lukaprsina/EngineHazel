@@ -1,8 +1,10 @@
-#include "WindowsWindow.h"
+#include "GLFWWindow.h"
 
 #include "Events/ApplicationEvent.h"
 #include "Events/MouseEvent.h"
 #include "Events/KeyEvent.h"
+
+#include <Glad/glad.h>
 
 namespace eng
 {
@@ -16,20 +18,20 @@ namespace eng
 
     Window *Window::Create(const WindowProps &props)
     {
-        return new WindowsWindow(props);
+        return new GLFWWindow(props);
     }
 
-    WindowsWindow::WindowsWindow(const WindowProps &props)
+    GLFWWindow::GLFWWindow(const WindowProps &props)
     {
         Init(props);
     }
 
-    WindowsWindow::~WindowsWindow()
+    GLFWWindow::~GLFWWindow()
     {
         Shutdown();
     }
 
-    void WindowsWindow::Init(const WindowProps &props)
+    void GLFWWindow::Init(const WindowProps &props)
     {
         m_Data.Title = props.Title;
         m_Data.Width = props.Width;
@@ -45,6 +47,12 @@ namespace eng
 
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_Window);
+
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        {
+            printf("Can't initialize Glad!\n");
+        }
+
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
 
@@ -125,18 +133,18 @@ namespace eng
         });
     }
 
-    void WindowsWindow::Shutdown()
+    void GLFWWindow::Shutdown()
     {
         glfwDestroyWindow(m_Window);
     }
 
-    void WindowsWindow::OnUpdate()
+    void GLFWWindow::OnUpdate()
     {
         glfwPollEvents();
         glfwSwapBuffers(m_Window);
     }
 
-    void WindowsWindow::SetVSync(bool enabled)
+    void GLFWWindow::SetVSync(bool enabled)
     {
         if (enabled)
             glfwSwapInterval(1);
@@ -146,7 +154,7 @@ namespace eng
         m_Data.VSync = enabled;
     }
 
-    bool WindowsWindow::IsVSync() const
+    bool GLFWWindow::IsVSync() const
     {
         return m_Data.VSync;
     }

@@ -1,12 +1,11 @@
-#include "Application.h"
+#include "Core/Application.h"
 
-#include "GLFW/glfw3.h"
+#include <Glad/glad.h>
 
 namespace eng
 {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-    
 
     Application::Application()
     {
@@ -30,8 +29,8 @@ namespace eng
     {
         while (m_Running)
         {
-            /* glClearColor(1, 0, 1, 1);
-            glClear(GL_COLOR_BUFFER_BIT); */
+            glClearColor(1, 0, 1, 1);
+            glClear(GL_COLOR_BUFFER_BIT);
             m_Window->OnUpdate();
         }
     }
