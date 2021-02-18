@@ -23,9 +23,6 @@ namespace eng
         }
 
         EVENT_CLASS_TYPE(WindowResize)
-        /* static EventType GetStaticType() { return EventType::WindowResize; }
-        virtual EventType GetEventType() const override { return GetStaticType(); }
-        virtual const char *GetName() const override { return "WindowResize"; } */
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     private:
         unsigned int m_Width, m_Height;
@@ -36,10 +33,7 @@ namespace eng
     public:
         WindowCloseEvent() {}
 
-        //EVENT_CLASS_TYPE(WindowClose)
-        static EventType GetStaticType() { return EventType::WindowClose; }
-        virtual EventType GetEventType() const override { return GetStaticType(); }
-        virtual const char *GetName() const override { return "WindowClose"; }
+        EVENT_CLASS_TYPE(WindowClose)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -48,10 +42,7 @@ namespace eng
     public:
         AppTickEvent() {}
 
-        //EVENT_CLASS_TYPE(AppTick)
-        static EventType GetStaticType() { return EventType::AppTick; }
-        virtual EventType GetEventType() const override { return GetStaticType(); }
-        virtual const char *GetName() const override { return "AppTick"; }
+        EVENT_CLASS_TYPE(AppTick)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -60,10 +51,7 @@ namespace eng
     public:
         AppUpdateEvent() {}
 
-        //EVENT_CLASS_TYPE(AppUpdate)
-        static EventType GetStaticType() { return EventType::AppUpdate; }
-        virtual EventType GetEventType() const override { return GetStaticType(); }
-        virtual const char *GetName() const override { return "AppUpdate"; }
+        EVENT_CLASS_TYPE(AppUpdate)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -72,10 +60,7 @@ namespace eng
     public:
         AppRenderEvent() {}
 
-        // EVENT_CLASS_TYPE(AppRender)
-        static EventType GetStaticType() { return EventType::AppRender; }
-        virtual EventType GetEventType() const override { return GetStaticType(); }
-        virtual const char *GetName() const override { return "AppRender"; }
+        EVENT_CLASS_TYPE(AppRender)
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 } // namespace eng

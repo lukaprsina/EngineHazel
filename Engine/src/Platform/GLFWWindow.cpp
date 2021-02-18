@@ -5,7 +5,7 @@
 #include "Events/MouseEvent.h"
 #include "Events/KeyEvent.h"
 
-#include <Glad/glad.h>
+#include <glad/glad.h>
 
 namespace eng
 {
@@ -24,13 +24,13 @@ namespace eng
 
     GLFWWindow::GLFWWindow(const WindowProps &props)
     {
-        ENG_CORE_TRACE("Creating a GLFW window.");
+        ENG_CORE_TRACE("Creating a GLFW window...");
         Init(props);
     }
 
     GLFWWindow::~GLFWWindow()
     {
-        ENG_CORE_TRACE("Destroying the GLFW window.");
+        ENG_CORE_TRACE("Destroying the GLFW window...");
         Shutdown();
     }
 
@@ -42,7 +42,7 @@ namespace eng
 
         if (s_GLFWInitialized)
         {
-            ENG_CORE_TRACE("GLFW already initialized.");
+            ENG_CORE_ERROR("GLFW already initialized.");
         }
         else
         {
@@ -147,7 +147,7 @@ namespace eng
 
     void GLFWWindow::Shutdown()
     {
-        ENG_CORE_TRACE("Destroying GLFW window.");
+        ENG_CORE_TRACE("Destroyed the GLFW window.");
         glfwDestroyWindow(m_Window);
     }
 

@@ -16,9 +16,7 @@ target_include_directories(Engine
 
 target_link_libraries(Engine
 	PRIVATE glfw
-	PRIVATE	Glad
-	PUBLIC	spdlog
-	PRIVATE opengl32.lib
+	PRIVATE Glad
 	)
 
 if (WIN32)
