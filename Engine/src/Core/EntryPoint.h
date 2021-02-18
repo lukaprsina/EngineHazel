@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
 {
     eng::Log::Init();
 
+    ENG_CORE_CRITICAL("ls");
+
     auto app = eng::CreateApplication();
     app->Run();
     delete app;

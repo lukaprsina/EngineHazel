@@ -1,7 +1,9 @@
 ﻿add_library (Engine SHARED
 	"src/Core/Application.cpp"
 	"src/Core/Log.cpp"
-	"src/Platform/GLFWWindow.cpp")
+	"src/Core/pch.cpp"
+	"src/Platform/GLFWWindow.cpp"
+)
 
 target_include_directories(Engine
 	PRIVATE ${PROJECT_BINARY_DIR}
@@ -14,7 +16,9 @@ target_include_directories(Engine
 
 target_link_libraries(Engine
 	PRIVATE glfw
-	PRIVATE libobsglad.so
+	PRIVATE	Glad
+	PUBLIC	spdlog
+	PRIVATE opengl32.lib
 	)
 
 if (WIN32)
@@ -25,7 +29,7 @@ if (UNIX)
 endif (UNIX)
 
 target_compile_definitions(Engine
+	PRIVATE ${ENG_PLATFORM}
 	PRIVATE ENG_BUILD_DLL
-	${ENG_PLATFORM}
 	PRIVATE GLFW_INCLUDE_NONE
 	)
