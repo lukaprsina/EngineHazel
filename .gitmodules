@@ -3,4 +3,7 @@
 	url = https://github.com/lukaprsina/glfw
 [submodule "Engine/vendor/GLFW"]
 	path = Engine/vendor/GLFW
-	url = https://github.com/lukaprsina/glfw
+	url = https://github.com/glfw/glfw
+[submodule "Engine/vendor/spdlog"]
+	path = Engine/vendor/spdlog
+	url = https://github.com/gabime/spdlog

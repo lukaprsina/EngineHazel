@@ -1,4 +1,5 @@
 #include "GLFWWindow.h"
+#include "Core/Log.h"
 
 #include "Events/ApplicationEvent.h"
 #include "Events/MouseEvent.h"
@@ -13,7 +14,7 @@ namespace eng
 
     static void GLFWErrorCallback(int error, const char *description)
     {
-        std::cout << "GLFW Error [" << error << "]: " << description << '\n';
+        ENG_CORE_ERROR("GLFW Error [{0}]: {1}", error, description);
     }
 
     Window *Window::Create(const WindowProps &props)
@@ -23,11 +24,13 @@ namespace eng
 
     GLFWWindow::GLFWWindow(const WindowProps &props)
     {
+        ENG_CORE_TRACE("Creating a GLFW window.");
         Init(props);
     }
 
     GLFWWindow::~GLFWWindow()
     {
+        ENG_CORE_TRACE("Destroying the GLFW window.");
         Shutdown();
     }
 
@@ -37,20 +40,29 @@ namespace eng
         m_Data.Width = props.Width;
         m_Data.Height = props.Height;
 
-        if (!s_GLFWInitialized)
+        if (s_GLFWInitialized)
         {
-            // TODO: glfwTerminate on system shutdown
+            ENG_CORE_TRACE("GLFW already initialized.");
+        }
+        else
+        {
             int success = glfwInit();
             glfwSetErrorCallback(GLFWErrorCallback);
             s_GLFWInitialized = true;
+            ENG_CORE_TRACE("Initialized GLFW.");
         }
 
         m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_Window);
+        ENG_CORE_TRACE("Created a window.");
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
         {
-            printf("Can't initialize Glad!\n");
+            ENG_CORE_ERROR("Cannot initialize Glad.");
+        }
+        else
+        {
+            ENG_CORE_TRACE("Initialized Glad.");
         }
 
         glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -135,6 +147,7 @@ namespace eng
 
     void GLFWWindow::Shutdown()
     {
+        ENG_CORE_TRACE("Destroying GLFW window.");
         glfwDestroyWindow(m_Window);
     }
 
@@ -147,10 +160,15 @@ namespace eng
     void GLFWWindow::SetVSync(bool enabled)
     {
         if (enabled)
+        {
             glfwSwapInterval(1);
+            ENG_CORE_TRACE("VSync enabled.");
+        }
         else
+        {
             glfwSwapInterval(0);
-
+            ENG_CORE_TRACE("VSync disabled.");
+        }
         m_Data.VSync = enabled;
     }
 
