@@ -1,8 +1,8 @@
 ﻿add_library (Engine SHARED
-	"src/Core/Application.cpp"
-	"src/Core/Log.cpp"
 	"src/Core/pch.cpp"
+	"src/Core/Application.cpp"
 	"src/Platform/GLFWWindow.cpp"
+	"src/Core/Log.cpp"
 )
 
 target_include_directories(Engine
@@ -17,6 +17,7 @@ target_include_directories(Engine
 target_link_libraries(Engine
 	PRIVATE glfw
 	PRIVATE Glad
+	#PRIVATE spdlog
 	)
 
 if (WIN32)
