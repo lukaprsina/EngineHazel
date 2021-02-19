@@ -1,4 +1,4 @@
-add_library (Glad
+add_library (Glad SHARED
 	"src/glad.c"
 	"include/glad/glad.h"
 	"include/KHR/khrplatform.h"
