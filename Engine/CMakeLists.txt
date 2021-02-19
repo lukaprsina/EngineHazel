@@ -9,8 +9,8 @@ target_include_directories(Engine
 	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
 	INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include
 	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include
-	#PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/GLFW/include
-	#PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/Glad/include
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/GLFW/include
+	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/Glad/include
 	)
 
 target_precompile_headers(Engine
