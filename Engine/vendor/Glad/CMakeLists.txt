@@ -5,5 +5,5 @@ add_library (Glad SHARED
 )
 
 target_include_directories(Glad
-	PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
+	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 	)
