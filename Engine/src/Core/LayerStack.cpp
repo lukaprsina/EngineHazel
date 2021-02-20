@@ -36,13 +36,17 @@ namespace eng {
 		}
 	}
 
+	/*********************************************************************/
+
 	void Application::BringLayerForward(Layer* layer, unsigned int count)
 	{
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
 		if (it != m_Layers.end())
-		{
+		{			
+			auto distance = std::distance(m_Layers.begin(), it);
 			m_Layers.erase(it);
-			m_Layers.emplace(it - count, layer);
+
+			m_Layers.insert(m_Layers.begin() + distance + count, layer);
 		}
 	}
 
@@ -51,8 +55,10 @@ namespace eng {
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
 		if (it != m_Layers.end())
 		{
+			auto distance = std::distance(m_Layers.begin(), it);
 			m_Layers.erase(it);
-			m_Layers.emplace(it + count, layer);
+
+			m_Layers.insert(m_Layers.begin() + distance - count, layer);
 		}
 	}
 }

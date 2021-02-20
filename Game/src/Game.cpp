@@ -1,28 +1,29 @@
 #include "Engine.h"
 
-class MyLayer : public eng::Layer
+class TransparentLayer : public eng::Layer
 {
 public:
-    MyLayer()
+    TransparentLayer()
         : Layer()
     {}
 
     void OnEvent(eng::Event& event) override
     {        
-        ENG_TRACE("MyLayer: {0}", event.ToString());        
+        ENG_TRACE("Transparent: {0}", event.ToString());        
     }
 };
 
-class MyOtherLayer : public eng::Layer
+class BlockingLayer : public eng::Layer
 {
 public:
-    MyOtherLayer()
+    BlockingLayer()
         : Layer()
     {}
 
     void OnEvent(eng::Event& event) override
     {        
-        ENG_TRACE("MyOtherLayer: {0}", event.ToString());
+        ENG_TRACE("Block: {0}", event.ToString());
+        ENG_TRACE("-------------");
         event.Handled = true;
     }
 };
@@ -32,13 +33,20 @@ class Game : public eng::Application
 public:
     Game()
     {
-        MyLayer* gameLayer = new MyLayer;
+        TransparentLayer* gameLayer = new TransparentLayer;
         PushLayer(gameLayer);
 
-        MyOtherLayer* uiLayer = new MyOtherLayer;
+        BlockingLayer* uiLayer = new BlockingLayer;
         PushLayer(uiLayer);
 
-        BringLayerForward(gameLayer);
+        TransparentLayer* warningLayer = new TransparentLayer;
+        PushLayer(warningLayer);
+
+
+
+        BringLayerToFront(gameLayer);
+        BringLayerForward(uiLayer, 2);
+        SendLayerBackward(uiLayer, 1);
     }
     ~Game()
     {
