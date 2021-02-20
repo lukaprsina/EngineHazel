@@ -7,3 +7,4 @@
 #include "Core/EntryPoint.h"
 
 #include "Core/Log.h"
+#include "Core/Layer.h"

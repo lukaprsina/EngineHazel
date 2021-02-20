@@ -24,8 +24,14 @@ namespace eng
     void Application::OnEvent(Event &e)
     {
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-        ENG_CORE_TRACE("{0}", e.ToString());        
+        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));  
+
+        for (auto it = m_Layers.end(); it != m_Layers.begin(); )
+        {
+            (*--it)->OnEvent(e);
+            if (e.Handled)
+                break;
+        }
     }
 
     void Application::Run()
@@ -35,6 +41,8 @@ namespace eng
             glClearColor(1, 0, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
             m_Window->OnUpdate();
+            for (Layer* layer : m_Layers)
+                layer->OnUpdate();
         }
     }
 

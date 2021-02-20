@@ -3,7 +3,8 @@
 	"src/Core/Application.cpp"
 	"src/Platform/GLFWWindow.cpp"
 	"src/Core/Log.cpp"
-)
+	"src/Core/Layer.cpp"
+	"src/Core/LayerStack.cpp" )
 
 target_include_directories(Engine
 	PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
