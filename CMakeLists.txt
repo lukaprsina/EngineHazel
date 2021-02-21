@@ -18,6 +18,7 @@ endif (UNIX)
 
 add_subdirectory ("Engine/vendor/GLFW")
 add_subdirectory ("Engine/vendor/Glad")
+add_subdirectory ("Engine/vendor/imgui")
 add_subdirectory ("Engine/vendor/spdlog")
 add_subdirectory ("Engine")
 add_subdirectory ("Game")
