@@ -26,7 +26,7 @@ public:
     {
         ENG_TRACE("Block: {0}", event.ToString());
         ENG_TRACE("-------------");
-        event.Handled = true;
+        event.Handled = true;        
     }
 };
 
@@ -45,8 +45,6 @@ public:
         PushLayer(warningLayer);
 
         BringLayerToFront(gameLayer);
-        BringLayerForward(uiLayer, 2);
-        SendLayerBackward(uiLayer, 1);
     }
     ~Game()
     {
